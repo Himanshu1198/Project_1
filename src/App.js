@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import './App.css'
-import About from './Components/About'
+// import About from './Components/About'
 import Navbar from './Components/Navbar'
 import TextForm from './Components/TextForm'
 import Alert from './Components/Alert'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 function App() {
   const [Mode, setMode] = useState('')
@@ -32,37 +32,18 @@ function App() {
   }
   return (
     <>
-      <Router>
-        <Navbar
-          title='textUtils'
-          aboutText='About Us'
-          mode={Mode}
-          toggleMode={toggleMode}
-        />
-        <Alert alert={alert} />
-        <Routes>
-          <Route
-            exact
-            path='/'
-            element={
-              <TextForm
-                heading='Enter text to analyse'
-                mode={Mode}
-                showAlert={showAlert}
-              />
-            }
-          />
-          <Route
-            exact
-            path='/about'
-            element={
-              <div className='container my-3'>
-                <About />
-              </div>
-            }
-          />
-        </Routes>
-      </Router>
+      <Navbar
+        title='textUtils'
+        aboutText='About Us'
+        mode={Mode}
+        toggleMode={toggleMode}
+      />
+      <Alert alert={alert} />
+      <TextForm
+        heading='Enter text to analyse'
+        mode={Mode}
+        showAlert={showAlert}
+      />
     </>
   )
 }
